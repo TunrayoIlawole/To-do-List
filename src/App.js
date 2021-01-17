@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Todo from './components/Todo';
 import Form from './components/Form';
 import FilterButton from './components/FilterButton';
 
 
-function App({tasks}) {
+function App({theTasks}) {
+
+	const [tasks, setTasks] = useState(theTasks)
 
 	const taskList = tasks.map(task => {
 		return (
@@ -13,7 +15,8 @@ function App({tasks}) {
 	});
 
 	const addTask = (name) => {
-		alert(name);
+		const newTask = {id: "id", name: name, completed: false};
+		setTasks([...tasks, newTask]);
 	}
 
 	return (
