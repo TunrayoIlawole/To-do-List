@@ -1,53 +1,33 @@
+import React from 'react';
 import Todo from './components/Todo';
+import Form from './components/Form';
+import FilterButton from './components/FilterButton';
+
 
 function App({tasks}) {
 
 	const taskList = tasks.map(task => {
 		return (
 			<Todo key = {task.id} id = {task.id} name = {task.name} completed = {task.completed} />
-		)
-	})
+		);
+	});
+
+	const addTask = (name) => {
+		alert(name);
+	}
 
 	return (
 		<div className = "todoaap stack-large">
 			<h1>To-Do</h1>
-			<form>
-				<h2 className = "label-wrapper">
-					<label htmlFor = "new-todo-item" className = "label__lg">
-						What needs to be done?
-					</label>
-				</h2>
-				<input 
-					type = "text"
-					id = "new-todo-item"
-					className = "input input__lg"
-					name ="text"
-					autocomplete = "off" 
-				/>
-				<button type = "submit" className = "btn btn__primary btn__lg">
-					Add
-				</button>
-			</form>
+			<Form addTask = {addTask}/>
 			<div className = "filters btn-group stack-exception">
-				<button type = "button" className = "btn toggle-btn" aria-pressed = "true">
-					<span className = "visually-hidden">Show </span>
-					<span>all</span>
-					<span className = "visually-hidden"> tasks</span>
-				</button>
-				<button type = "button" className = "btn toggle-btn" aria-pressed = "false">
-					<span className = "visually-hidden">Show </span>
-					<span>Active</span>
-					<span className = "visually-hidden"> tasks</span>
-				</button>
-				<button type = "button" className = "btn toggle-btn" aria-pressed = "false">
-					<span className = "visually-hidden">Show </span>
-					<span>Completed</span>
-					<span className = "visually-hidden"> tasks</span>
-				</button>
+				<FilterButton />
+				<FilterButton />
+				<FilterButton />
 			</div>
 
 			<h2 id = "list-heading">
-				3 tasks remaining
+				{tasks.length} tasks remaining
 			</h2>
 
 			<ul 
