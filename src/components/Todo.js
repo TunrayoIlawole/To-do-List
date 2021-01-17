@@ -1,16 +1,35 @@
 import React, {useState} from 'react';
 
-const Todo = ({name, completed, id, toggleTaskCompleted, deleteTask}) => {
+const Todo = ({name, completed, id, toggleTaskCompleted, deleteTask, editTask}) => {
 
 	const [isEditing, setEditing] = useState(false);
+	const [newName, setNewName] = useState('');
+
+	const handleChange = (e) => {
+		setNewName(e.target.value)
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		editTask(id, newName);
+		setNewName('')
+		setEditing(false);
+		
+	}
 
 	const editingTemplate = (
-		<form className = "stack-small">
+		<form className = "stack-small" onSubmit = {handleSubmit}>
 			<div className = "form-group">
 				<label className = "todo-label" htmlFor = {id}>
 					New name for {name}
 				</label>
-				<input id = {id} className = "todo-text" type = "text" />
+				<input 
+					id = {id} 
+					className = "todo-text" 
+					type = "text" 
+					value = {newName}
+					onClick = {handleChange}
+					/>
 			</div>
 			<div className = "btn-group">
 				<button type = "button" className = "btn todo-cancel" onClick = {() => setEditing(false)}>
