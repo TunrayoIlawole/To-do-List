@@ -10,7 +10,8 @@ const Form = ({addTask}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addTask('Hello');
+        addTask(name);
+        setName('');
     }
 
     return (
