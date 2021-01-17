@@ -26,7 +26,7 @@ const Form = ({addTask}) => {
                 id = "new-todo-item"
                 className = "input input__lg"
                 name ="text"
-                autocomplete = "off" 
+                autoComplete = "off" 
                 value = {name}
                 onChange = {handleChange}
             />
