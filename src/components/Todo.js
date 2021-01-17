@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Todo = ({name}) => {
+const Todo = ({name, completed, id}) => {
     return (
         <li className = "todo stack-small">
 					<div className = "c-cb">
-						<input id = "todo-0" type = "checkbox" defaultChecked = {true} />
-						<label className = "todo-label" htmlFor = "todo-0">
+						<input id = {id} type = "checkbox" defaultChecked = {completed} />
+						<label className = "todo-label" htmlFor = {id}>
 							{name}
 						</label>
 					</div>
