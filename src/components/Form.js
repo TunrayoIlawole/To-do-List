@@ -1,8 +1,13 @@
 import React from 'react';
 
 const Form = () => {
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
     return (
-        <form>
+        <form onSubmit = {handleSubmit}>
             <h2 className = "label-wrapper">
                 <label htmlFor = "new-todo-item" className = "label__lg">
                     What needs to be done?
