@@ -24,7 +24,7 @@ const DATA = [
 
 ReactDOM.render(
   <React.StrictMode>
-    <App tasks = {DATA} />
+    <App theTasks = {DATA} />
   </React.StrictMode>,
   document.getElementById('root')
 );
