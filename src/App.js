@@ -16,6 +16,7 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 function App({theTasks}) {
 
 	const [tasks, setTasks] = useState(theTasks);
+	const [filter, setFilter] = useState('All');
 
 	const toggleTaskCompleted = (id) => {
 		const updatedTasks = tasks.map(task => {
