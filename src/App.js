@@ -10,6 +10,8 @@ const FILTER_MAP = {
 	Completed: task => task.completed
 };
 
+const FILTER_NAMES = Object.keys(FILTER_MAP);
+
 
 function App({theTasks}) {
 
@@ -54,6 +56,15 @@ function App({theTasks}) {
 		);
 	});
 
+	const filterList = FILTER_NAMES.map(name => (
+		<FilterButton 
+			key = {name} 
+			name = {name}
+			isPressed = {name === filter}
+			setFilter = {setFilter}
+			/>
+	))
+
 	const addTask = (name) => {
 		const newTask = {id: "todo-" + nanoid(), name: name, completed: false};
 		setTasks([...tasks, newTask]);
@@ -67,9 +78,7 @@ function App({theTasks}) {
 			<h1>To-Do</h1>
 			<Form addTask = {addTask}/>
 			<div className = "filters btn-group stack-exception">
-				<FilterButton />
-				<FilterButton />
-				<FilterButton />
+				{filterList}
 			</div>
 
 			<h2 id = "list-heading">
