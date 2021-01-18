@@ -63,7 +63,7 @@ const Todo = ({name, completed, id, toggleTaskCompleted, deleteTask, editTask}) 
 				</button>
 				<button
 					type = "button"
-					className = "btn btn-danger"
+					className = "btn btn__danger"
 					onClick = {() => deleteTask(id)}
 				>
 					Delete <span className = "visually hidden">{name}</span>
