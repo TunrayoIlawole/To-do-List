@@ -43,7 +43,9 @@ function App({theTasks}) {
 		setTasks(editedTaskList);
 	}
 
-	const taskList = tasks.map(task => {
+	const taskList = tasks
+	.filter(FILTER_MAP[filter])
+	.map(task => {
 		return (
 			<Todo 
 				key = {task.id} 
@@ -53,7 +55,7 @@ function App({theTasks}) {
 				toggleTaskCompleted = {toggleTaskCompleted}
 				deleteTask = {deleteTask}
 				editTask = {editTask}
-				/>
+			/>
 		);
 	});
 
